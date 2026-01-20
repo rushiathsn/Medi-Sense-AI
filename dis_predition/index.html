@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="MediSense AI - Advanced disease prediction system using artificial intelligence to analyze symptoms and provide health insights">
+    <title>MediSense AI - AI-Powered Disease Prediction</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="navbar-logo-icon">🏥</span>
+                <span data-i18n="nav.logo">MediSense AI</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+                <li><a href="chatbot.html" data-i18n="nav.aiChatbot">AI Chatbot</a></li>
+                <li><a href="symptom-checker.html" data-i18n="nav.symptomChecker">Symptom Checker</a></li>
+                <li><a href="user-profile.html">👤 Profile</a></li>
+                <li>
+                    <select class="language-select">
+                        <option value="en">English</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </li>
+                <li><button class="theme-toggle">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title" data-i18n="home.title">MediSense AI</h1>
+            <p class="hero-subtitle" data-i18n="home.subtitle">
+                Advanced AI-powered disease prediction system that analyzes your symptoms
+                and provides intelligent health insights in seconds
+            </p>
+            <div class="hero-buttons">
+                <a href="chatbot.html" class="btn btn-primary" data-i18n="home.btnTalkToAI">Talk to AI Doctor</a>
+                <a href="symptom-checker.html" class="btn btn-secondary" data-i18n="home.btnCheckSymptoms">Check
+                    Symptoms</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="home.whyChooseTitle">Why Choose MediSense AI?</h2>
+                <p data-i18n="home.whyChooseSubtitle">Cutting-edge technology for accurate health predictions</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title" data-i18n="home.aiPoweredTitle">AI-Powered Analysis</h3>
+                    <p data-i18n="home.aiPoweredDesc">Our advanced machine learning models analyze thousands of medical
+                        cases to provide accurate
+                        predictions based on your symptoms.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title" data-i18n="home.instantResultsTitle">Instant Results</h3>
+                    <p data-i18n="home.instantResultsDesc">Get comprehensive health insights in seconds. No waiting, no
+                        appointments needed for initial
+                        assessment.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title" data-i18n="home.privateTitle">Private & Secure</h3>
+                    <p data-i18n="home.privateDesc">Your health data is never stored or shared. All analysis happens
+                        locally in your browser.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">💊</div>
+                    <h3 class="feature-title" data-i18n="home.treatmentTitle">Treatment Guidance</h3>
+                    <p data-i18n="home.treatmentDesc">Receive personalized recommendations and medication suggestions
+                        based on your condition.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title" data-i18n="home.chatbotTitle">Interactive Chatbot</h3>
+                    <p data-i18n="home.chatbotDesc">Have a natural conversation with our AI doctor that asks relevant
+                        follow-up questions.</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title" data-i18n="home.detailedReportsTitle">Detailed Reports</h3>
+                    <p data-i18n="home.detailedReportsDesc">Get confidence scores, multiple predictions, and
+                        comprehensive health recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="home.howToStartTitle">How to Get Started</h2>
+                <p data-i18n="home.howToStartSubtitle">Three simple steps to your health insights</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="card card-glass">
+                    <h3 style="color: var(--primary-blue);" data-i18n="home.step1Title">1. Choose Input Method</h3>
+                    <p data-i18n="home.step1Desc">Select between our conversational AI chatbot or structured symptom
+                        checker based on your
+                        preference.</p>
+                </div>
+
+                <div class="card card-glass">
+                    <h3 style="color: var(--accent-cyan);" data-i18n="home.step2Title">2. Describe Symptoms</h3>
+                    <p data-i18n="home.step2Desc">Tell us about your symptoms in natural language or select from
+                        organized categories.</p>
+                </div>
+
+                <div class="card card-glass">
+                    <h3 style="color: var(--accent-teal);" data-i18n="home.step3Title">3. Get Predictions</h3>
+                    <p data-i18n="home.step3Desc">Receive instant AI-powered predictions with confidence scores and
+                        health recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section"
+        style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan)); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1.5rem;" data-i18n="home.ctaTitle">Ready to Check Your Symptoms?
+            </h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.25rem; margin-bottom: 2rem;"
+                data-i18n="home.ctaSubtitle">
+                Our AI is ready to help you understand your health better
+            </p>
+            <div class="hero-buttons">
+                <a href="chatbot.html" class="btn" style="background: white; color: var(--primary-blue);"
+                    data-i18n="home.ctaBtnStart">Start AI
+                    Chat</a>
+                <a href="symptom-checker.html" class="btn btn-secondary" style="border-color: white; color: white;"
+                    data-i18n="home.ctaBtnUse">Use
+                    Symptom Checker</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-secondary); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                <strong data-i18n="home.disclaimerLabel">Disclaimer:</strong> <span
+                    data-i18n="home.disclaimerText">MediSense AI is for informational purposes only and is not a
+                    substitute for
+                    professional medical advice, diagnosis, or treatment.</span>
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.875rem;" data-i18n="home.copyright">
+                &copy; 2026 MediSense AI. All rights reserved. | Always consult with a qualified healthcare provider.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

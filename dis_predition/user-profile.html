@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your health profile for better AI predictions">
+    <title>User Profile - MediSense AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="navbar-logo-icon">🏥</span>
+                <span data-i18n="nav.logo">MediSense AI</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+                <li><a href="chatbot.html" data-i18n="nav.aiChatbot">AI Chatbot</a></li>
+                <li><a href="symptom-checker.html" data-i18n="nav.symptomChecker">Symptom Checker</a></li>
+                <li><a href="user-profile.html" class="active">👤 Profile</a></li>
+                <li>
+                    <select class="language-select">
+                        <option value="en">English</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </li>
+                <li><button class="theme-toggle">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="section profile-section">
+        <div class="container" style="max-width: 900px;">
+            <!-- Enhanced Profile Header -->
+            <div class="profile-header-enhanced">
+                <div class="profile-avatar-container">
+                    <div class="profile-avatar">
+                        <span class="avatar-icon">👤</span>
+                    </div>
+                    <div class="profile-status-badge">Active</div>
+                </div>
+                <div class="profile-header-content">
+                    <h1>Your Health Profile</h1>
+                    <p class="subtitle">Manage your health information for more accurate AI predictions</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">📋</span>
+                            <span class="stat-label">Complete Profile</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🔒</span>
+                            <span class="stat-label">Secure & Private</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="card profile-form-card">
+                <div class="profile-form-header">
+                    <h2>Health Information</h2>
+                    <div class="profile-actions">
+                        <button type="button" class="btn-secondary btn-sm" id="clear-profile-btn">
+                            🗑️ Clear All
+                        </button>
+                    </div>
+                </div>
+
+                <form id="profile-form">
+                    <!-- Personal Information Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="section-icon">👤</span>
+                            <span data-i18n="healthInfo.personalInfoTitle">Personal Information</span>
+                        </h3>
+                        <div class="form-grid form-grid-3">
+                            <div class="form-group">
+                                <label for="profile-name">
+                                    <span data-i18n="healthInfo.nameLabel">Name</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <input type="text" id="profile-name" data-i18n="healthInfo.namePlaceholder"
+                                    placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-age">
+                                    <span data-i18n="healthInfo.ageLabel">Age</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <input type="number" id="profile-age" data-i18n="healthInfo.agePlaceholder"
+                                    placeholder="Enter your age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-gender">
+                                    <span data-i18n="healthInfo.genderLabel">Gender</span>
+                                </label>
+                                <select id="profile-gender">
+                                    <option value="" data-i18n="healthInfo.genderPlaceholder">Select gender...</option>
+                                    <option value="Male" data-i18n="healthInfo.genderMale">Male</option>
+                                    <option value="Female" data-i18n="healthInfo.genderFemale">Female</option>
+                                    <option value="Other" data-i18n="healthInfo.genderOther">Other</option>
+                                    <option value="Prefer not to say" data-i18n="healthInfo.genderPreferNot">Prefer not
+                                        to say</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physical Metrics Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="section-icon">⚖️</span>
+                            <span data-i18n="healthInfo.physicalMetricsTitle">Physical Metrics</span>
+                        </h3>
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label for="profile-weight">
+                                    <span data-i18n="healthInfo.weightLabel">Weight</span>
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="profile-weight" data-i18n="healthInfo.weightPlaceholder"
+                                        placeholder="Enter weight" step="0.1" min="1">
+                                    <select id="profile-weight-unit" class="unit-select">
+                                        <option value="kg">kg</option>
+                                        <option value="lbs">lbs</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-height">
+                                    <span data-i18n="healthInfo.heightLabel">Height</span>
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="profile-height" data-i18n="healthInfo.heightPlaceholder"
+                                        placeholder="Enter height" step="0.1" min="1">
+                                    <select id="profile-height-unit" class="unit-select">
+                                        <option value="cm">cm</option>
+                                        <option value="ft">ft</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BMI Display -->
+                        <div id="profile-bmi-display" class="bmi-card" style="display: none;">
+                            <div class="bmi-info">
+                                <span class="bmi-label">Your BMI:</span>
+                                <span class="bmi-value-large" id="profile-bmi-value">--</span>
+                            </div>
+                            <div class="bmi-category-large" id="profile-bmi-category">Enter weight and height</div>
+                        </div>
+                    </div>
+
+                    <!-- Vital Signs Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="section-icon">💓</span>
+                            <span data-i18n="healthInfo.vitalSignsTitle">Vital Signs</span>
+                        </h3>
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label>
+                                    <span data-i18n="healthInfo.bloodPressureLabel">Blood Pressure</span>
+                                </label>
+                                <div class="bp-input-group">
+                                    <input type="number" id="profile-bp-systolic" placeholder="120" min="60" max="250">
+                                    <span class="bp-separator">/</span>
+                                    <input type="number" id="profile-bp-diastolic" placeholder="80" min="40" max="150">
+                                    <span class="bp-unit">mmHg</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-temperature">
+                                    <span data-i18n="healthInfo.temperatureLabel">Temperature</span>
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="profile-temperature" placeholder="37.0" step="0.1" min="35"
+                                        max="45">
+                                    <select id="profile-temp-unit" class="unit-select">
+                                        <option value="C">°C</option>
+                                        <option value="F">°F</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medical History Section -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="section-icon">🏥</span>
+                            <span data-i18n="healthInfo.medicalHistoryTitle">Medical History</span>
+                        </h3>
+
+                        <div class="form-group">
+                            <label>
+                                <span data-i18n="healthInfo.conditionsLabel">Pre-existing Conditions</span>
+                            </label>
+                            <div class="conditions-grid-large">
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-diabetes" value="Diabetes">
+                                    <span>🩸 <span data-i18n="healthInfo.conditionDiabetes">Diabetes</span></span>
+                                </label>
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-hypertension" value="Hypertension">
+                                    <span>💓 <span
+                                            data-i18n="healthInfo.conditionHypertension">Hypertension</span></span>
+                                </label>
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-asthma" value="Asthma">
+                                    <span>🫁 <span data-i18n="healthInfo.conditionAsthma">Asthma</span></span>
+                                </label>
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-heart-disease" value="Heart Disease">
+                                    <span>❤️ <span data-i18n="healthInfo.conditionHeartDisease">Heart
+                                            Disease</span></span>
+                                </label>
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-arthritis" value="Arthritis">
+                                    <span>🦴 <span data-i18n="healthInfo.conditionArthritis">Arthritis</span></span>
+                                </label>
+                                <label class="condition-checkbox-large">
+                                    <input type="checkbox" id="profile-condition-thyroid" value="Thyroid Disorder">
+                                    <span>🦋 <span data-i18n="healthInfo.conditionThyroid">Thyroid
+                                            Disorder</span></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-grid form-grid-2">
+                            <div class="form-group">
+                                <label for="profile-medications">
+                                    <span data-i18n="healthInfo.medicationsLabel">Current Medications</span>
+                                </label>
+                                <textarea id="profile-medications" rows="4"
+                                    data-i18n="healthInfo.medicationsPlaceholder"
+                                    placeholder="List any medications you're currently taking..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-allergies">
+                                    <span data-i18n="healthInfo.allergiesLabel">Known Allergies</span>
+                                </label>
+                                <textarea id="profile-allergies" rows="4" data-i18n="healthInfo.allergiesPlaceholder"
+                                    placeholder="List any known allergies..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            💾 <span data-i18n="healthInfo.btnSave">Save Profile</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="save-success-message" class="success-message" style="display: none;">
+                    ✅ Profile saved successfully!
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1.5rem;">Quick Actions</h3>
+                <div class="quick-actions-grid">
+                    <a href="symptom-checker.html" class="quick-action-card">
+                        <span class="action-icon">🔍</span>
+                        <span class="action-title">Check Symptoms</span>
+                        <span class="action-desc">Analyze your symptoms</span>
+                    </a>
+                    <a href="chatbot.html" class="quick-action-card">
+                        <span class="action-icon">💬</span>
+                        <span class="action-title">AI Chatbot</span>
+                        <span class="action-desc">Talk to AI doctor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="user-profile.js"></script>
+</body>
+
+</html>

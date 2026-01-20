@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Select your symptoms from organized categories for AI analysis">
+    <title>Symptom Checker - MediSense AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="translations.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="navbar-logo-icon">🏥</span>
+                <span data-i18n="nav.logo">MediSense AI</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="about.html" data-i18n="nav.about">About</a></li>
+                <li><a href="how-it-works.html" data-i18n="nav.howItWorks">How It Works</a></li>
+                <li><a href="chatbot.html" data-i18n="nav.aiChatbot">AI Chatbot</a></li>
+                <li><a href="symptom-checker.html" data-i18n="nav.symptomChecker">Symptom Checker</a></li>
+                <li>
+                    <select class="language-select">
+                        <option value="en">English</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="hi">हिंदी</option>
+                    </select>
+                </li>
+                <li><button class="theme-toggle">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Symptom Checker Section -->
+    <section class="section">
+        <div class="container">
+            <h1 class="text-center" data-i18n="symptomChecker.title">Symptom Checker</h1>
+            <p class="text-center" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 3rem;"
+                data-i18n="symptomChecker.subtitle">
+                Select all symptoms you're experiencing from the categories below
+            </p>
+
+            <form id="symptom-form">
+                <!-- Additional Information -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="duration" data-i18n="symptomChecker.durationLabel">How long
+                                have you had these symptoms?</label>
+                            <select class="form-select" id="duration">
+                                <option value="" data-i18n="symptomChecker.durationPlaceholder">Select duration...
+                                </option>
+                                <option value="less-than-1-day" data-i18n="symptomChecker.durationOptions.lessThan1Day">
+                                    Less than 1 day</option>
+                                <option value="1-3-days" data-i18n="symptomChecker.durationOptions.oneToThreeDays">1-3
+                                    days</option>
+                                <option value="4-7-days" data-i18n="symptomChecker.durationOptions.fourToSevenDays">4-7
+                                    days</option>
+                                <option value="1-2-weeks" data-i18n="symptomChecker.durationOptions.oneToTwoWeeks">1-2
+                                    weeks</option>
+                                <option value="more-than-2-weeks"
+                                    data-i18n="symptomChecker.durationOptions.moreThanTwoWeeks">More than 2 weeks
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="severity" data-i18n="symptomChecker.severityLabel">How severe
+                                are your symptoms?</label>
+                            <select class="form-select" id="severity">
+                                <option value="" data-i18n="symptomChecker.severityPlaceholder">Select severity...
+                                </option>
+                                <option value="mild" data-i18n="symptomChecker.severityOptions.mild">Mild - Noticeable
+                                    but not interfering much</option>
+                                <option value="moderate" data-i18n="symptomChecker.severityOptions.moderate">Moderate -
+                                    Affecting daily activities</option>
+                                <option value="severe" data-i18n="symptomChecker.severityOptions.severe">Severe -
+                                    Significantly impacting life</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Symptom Categories -->
+                <div class="card">
+                    <h2 style="color: var(--primary-blue); margin-bottom: 2rem;"
+                        data-i18n="symptomChecker.selectSymptomsTitle">Select Your Symptoms</h2>
+                    <div id="symptom-categories">
+                        <!-- Categories will be rendered here by JavaScript -->
+                    </div>
+
+                    <!-- Submit Buttons -->
+                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 3rem;">
+                        <button type="submit" class="btn btn-primary" style="min-width: 200px;"
+                            data-i18n="symptomChecker.btnAnalyze">
+                            Analyze Symptoms
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearSelections()"
+                            data-i18n="symptomChecker.btnClear">
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Tips -->
+            <div class="card" style="margin-top: 2rem;">
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;" data-i18n="symptomChecker.tipsTitle">💡
+                    Selection Tips</h3>
+                <ul style="color: var(--text-secondary); line-height: 1.8;">
+                    <li data-i18n="symptomChecker.tip1">Select all symptoms you're currently experiencing, even mild
+                        ones</li>
+                    <li data-i18n="symptomChecker.tip2">Symptoms are organized by body system for easier selection</li>
+                    <li data-i18n="symptomChecker.tip3">You can select symptoms from multiple categories</li>
+                    <li data-i18n="symptomChecker.tip4">Be thorough - more symptoms lead to more accurate predictions
+                    </li>
+                    <li data-i18n="symptomChecker.tip5">Don't worry about selecting too many - the AI will analyze all
+                        of them</li>
+                </ul>
+            </div>
+
+            <!-- Alternative Option -->
+            <div class="text-center" style="margin-top: 2rem;">
+                <p style="color: var(--text-secondary);" data-i18n="symptomChecker.alternativeText">
+                    Prefer to describe symptoms naturally?
+                </p>
+                <a href="chatbot.html" class="btn btn-secondary" style="margin-top: 1rem;"
+                    data-i18n="symptomChecker.alternativeBtn">
+                    Use AI Chatbot Instead
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Information Modal -->
+    <div id="health-info-modal" class="health-info-modal hidden">
+        <div class="health-info-content">
+            <div class="health-info-header">
+                <h2 data-i18n="healthInfo.title">📋 Your Health Profile</h2>
+                <p data-i18n="healthInfo.subtitle">Help us provide more accurate predictions by sharing some basic
+                    health information</p>
+            </div>
+
+            <div class="health-info-body">
+                <!-- Personal Information Section -->
+                <div class="health-form-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">👤</span>
+                        <span data-i18n="healthInfo.personalInfoTitle">Personal Information</span>
+                    </h3>
+                    <div class="form-grid form-grid-2">
+                        <div class="form-field">
+                            <label for="user-name">
+                                <span class="field-icon">✏️</span>
+                                <span data-i18n="healthInfo.nameLabel">Name</span>
+                            </label>
+                            <input type="text" id="user-name" data-i18n="healthInfo.namePlaceholder"
+                                placeholder="Enter your name">
+                        </div>
+                        <div class="form-field">
+                            <label for="user-age">
+                                <span class="field-icon">📅</span>
+                                <span data-i18n="healthInfo.ageLabel">Age</span>
+                            </label>
+                            <input type="number" id="user-age" data-i18n="healthInfo.agePlaceholder"
+                                placeholder="Enter your age" min="1" max="120">
+                        </div>
+                        <div class="form-field">
+                            <label for="user-gender">
+                                <span class="field-icon">⚧</span>
+                                <span data-i18n="healthInfo.genderLabel">Gender</span>
+                            </label>
+                            <select id="user-gender">
+                                <option value="" data-i18n="healthInfo.genderPlaceholder">Select gender...</option>
+                                <option value="Male" data-i18n="healthInfo.genderMale">Male</option>
+                                <option value="Female" data-i18n="healthInfo.genderFemale">Female</option>
+                                <option value="Other" data-i18n="healthInfo.genderOther">Other</option>
+                                <option value="Prefer not to say" data-i18n="healthInfo.genderPreferNot">Prefer not to
+                                    say</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Physical Metrics Section -->
+                <div class="health-form-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">⚖️</span>
+                        <span data-i18n="healthInfo.physicalMetricsTitle">Physical Metrics</span>
+                    </h3>
+                    <div class="form-grid form-grid-2">
+                        <div class="form-field">
+                            <label for="user-weight">
+                                <span class="field-icon">⚖️</span>
+                                <span data-i18n="healthInfo.weightLabel">Weight</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="user-weight" data-i18n="healthInfo.weightPlaceholder"
+                                    placeholder="Enter weight" step="0.1" min="1">
+                                <select id="weight-unit">
+                                    <option value="kg">kg</option>
+                                    <option value="lbs">lbs</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="user-height">
+                                <span class="field-icon">📏</span>
+                                <span data-i18n="healthInfo.heightLabel">Height</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="user-height" data-i18n="healthInfo.heightPlaceholder"
+                                    placeholder="Enter height" step="0.1" min="1">
+                                <select id="height-unit">
+                                    <option value="cm">cm</option>
+                                    <option value="ft">ft</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BMI Display -->
+                    <div id="bmi-display" class="bmi-display" style="display: none;">
+                        <div class="bmi-value" id="bmi-value">--</div>
+                        <div class="bmi-category" id="bmi-category" data-i18n="healthInfo.bmiDisplayDefault">Enter
+                            weight and height</div>
+                    </div>
+                </div>
+
+                <!-- Vital Signs Section -->
+                <div class="health-form-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">💓</span>
+                        <span data-i18n="healthInfo.vitalSignsTitle">Vital Signs</span>
+                    </h3>
+                    <div class="form-grid form-grid-2">
+                        <div class="form-field">
+                            <label>
+                                <span class="field-icon">💓</span>
+                                <span data-i18n="healthInfo.bloodPressureLabel">Blood Pressure</span>
+                            </label>
+                            <div class="bp-inputs">
+                                <input type="number" id="bp-systolic" placeholder="120" min="60" max="250">
+                                <span class="bp-separator">/</span>
+                                <input type="number" id="bp-diastolic" placeholder="80" min="40" max="150">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="user-temperature">
+                                <span class="field-icon">🌡️</span>
+                                <span data-i18n="healthInfo.temperatureLabel">Temperature</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="user-temperature" placeholder="Enter temp" step="0.1" min="35"
+                                    max="45">
+                                <select id="temp-unit">
+                                    <option value="C">°C</option>
+                                    <option value="F">°F</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical History Section -->
+                <div class="health-form-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">🏥</span>
+                        <span data-i18n="healthInfo.medicalHistoryTitle">Medical History</span>
+                    </h3>
+
+                    <label style="margin-bottom: 0.75rem; display: block; font-weight: 600;">
+                        <span class="field-icon">📋</span>
+                        <span data-i18n="healthInfo.conditionsLabel">Pre-existing Conditions</span>
+                    </label>
+                    <div class="conditions-grid">
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-diabetes" value="Diabetes">
+                            <span data-i18n="healthInfo.conditionDiabetes">Diabetes</span>
+                        </label>
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-hypertension" value="Hypertension">
+                            <span data-i18n="healthInfo.conditionHypertension">Hypertension</span>
+                        </label>
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-asthma" value="Asthma">
+                            <span data-i18n="healthInfo.conditionAsthma">Asthma</span>
+                        </label>
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-heart-disease" value="Heart Disease">
+                            <span data-i18n="healthInfo.conditionHeartDisease">Heart Disease</span>
+                        </label>
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-arthritis" value="Arthritis">
+                            <span data-i18n="healthInfo.conditionArthritis">Arthritis</span>
+                        </label>
+                        <label class="condition-checkbox">
+                            <input type="checkbox" id="condition-thyroid" value="Thyroid Disorder">
+                            <span data-i18n="healthInfo.conditionThyroid">Thyroid Disorder</span>
+                        </label>
+                    </div>
+
+                    <div class="form-grid" style="margin-top: 1.5rem;">
+                        <div class="form-field">
+                            <label for="user-medications">
+                                <span class="field-icon">💊</span>
+                                <span data-i18n="healthInfo.medicationsLabel">Current Medications</span>
+                            </label>
+                            <textarea id="user-medications" data-i18n="healthInfo.medicationsPlaceholder"
+                                placeholder="List any medications you're currently taking..."
+                                style="min-height: 80px; resize: vertical; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: inherit; font-size: 1rem; width: 100%;"></textarea>
+                        </div>
+                        <div class="form-field">
+                            <label for="user-allergies">
+                                <span class="field-icon">⚠️</span>
+                                <span data-i18n="healthInfo.allergiesLabel">Known Allergies</span>
+                            </label>
+                            <textarea id="user-allergies" data-i18n="healthInfo.allergiesPlaceholder"
+                                placeholder="List any known allergies..."
+                                style="min-height: 80px; resize: vertical; padding: 0.875rem; border: 2px solid var(--border-color); border-radius: 0.5rem; font-family: inherit; font-size: 1rem; width: 100%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="health-info-footer">
+                <div class="progress-indicator">
+                    <span data-i18n="healthInfo.formCompletion">Form Completion:</span>
+                    <span class="progress-text" id="progress-text">0%</span>
+                </div>
+                <div class="footer-buttons">
+                    <button type="button" class="btn-skip" id="skip-health-info" data-i18n="healthInfo.btnSkip">Skip for
+                        Now</button>
+                    <button type="button" class="btn-save" id="save-health-info" data-i18n="healthInfo.btnSave">Save &
+                        Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="symptom-checker.js"></script>
+    <script>
+        // Initialize health info modal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initHealthInfoModal();
+        });
+    </script>
+</body>
+
+</html>
